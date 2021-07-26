@@ -5,8 +5,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import digitalinnovation.one.experts.productcatalog.model.Product;
-import digitalinnovation.one.experts.productcatalog.repository.ProductRepository;
+import digitalinnovation.one.experts.productcatalog.models.Product;
+import digitalinnovation.one.experts.productcatalog.repositories.ProductRepository;
 
 @Service
 public class ProductService {
@@ -28,6 +28,14 @@ public class ProductService {
 
   public Iterable<Product> listByName(String name) {
     return this.productRepository.findByName(name);
+  }
+
+  public Product update(Product product) {
+    return this.productRepository.save(product);
+  }
+
+  public void delete(Integer id) {
+    this.productRepository.deleteById(id);
   }
 
 }

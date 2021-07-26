@@ -12,14 +12,13 @@ import org.springframework.data.elasticsearch.core.EntityMapper;
 import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 
 @Configuration
-@EnableElasticsearchRepositories(basePackages = "digitalinnovation.one.experts.productcatalog.repository")
+@EnableElasticsearchRepositories(basePackages = "digitalinnovation.one.experts.productcatalog.repositories")
 public class ElasticSearchConfig extends AbstractElasticsearchConfiguration {
 
     @Override
     public RestHighLevelClient elasticsearchClient() {
         ClientConfiguration clientConfiguration = ClientConfiguration.builder()
-                .connectedTo("localhost:9200", "localhost:9300")
-                .build();
+                .connectedTo("localhost:9200", "localhost:9300").build();
         return RestClients.create(clientConfiguration).rest();
     }
 

@@ -1,8 +1,6 @@
-
-version: '2'
+version: "2"
 
 services:
-
   elasticsearch:
     container_name: "elasticsearch"
     image: elasticsearch:6.6.2
@@ -12,11 +10,8 @@ services:
     environment:
       - discovery.type=single-node
 
-  redis:
-    container_name: "redis"
-    image: redis:3.0.1
-    ports:
-      - 6379:6379
-
-
-
+  # redis:
+  #   container_name: "redis"
+  #   image: redis:3.0.1
+  #   ports:
+  #     - 6379:6379

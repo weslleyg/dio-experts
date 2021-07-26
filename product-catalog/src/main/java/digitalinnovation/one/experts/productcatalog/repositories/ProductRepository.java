@@ -1,7 +1,8 @@
-package digitalinnovation.one.experts.productcatalog.repository;
+package digitalinnovation.one.experts.productcatalog.repositories;
 
-import digitalinnovation.one.experts.productcatalog.model.Product;
 import org.springframework.data.repository.CrudRepository;
+
+import digitalinnovation.one.experts.productcatalog.models.Product;
 
 import java.util.List;
 
