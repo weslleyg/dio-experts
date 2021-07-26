@@ -16,22 +16,22 @@ public class ProductController {
     @Autowired
     private ProductService productService;
 
-    @RequestMapping(method = RequestMethod.POST)
+    @PostMapping
     public Product create(@RequestBody Product product) {
         return this.productService.save(product);
     }
 
-    @RequestMapping
+    @GetMapping
     public Iterable<Product> list() {
         return this.productService.listAll();
     }
 
-    @RequestMapping(value = "/{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<Product> findById(@PathVariable("id") Integer id) {
         return ResponseEntity.ok(this.productService.listById(id).orElseThrow());
     }
 
-    @RequestMapping(value = "/name/{name}")
+    @GetMapping(value = "/name/{name}")
     public Iterable<Product> findByName(@PathVariable("name") String name) {
         return this.productService.listByName(name);
     }
