@@ -3,6 +3,8 @@ package digitalinnovation.one.experts.shoppingcart.controller;
 import digitalinnovation.one.experts.shoppingcart.model.Cart;
 import digitalinnovation.one.experts.shoppingcart.model.Item;
 import digitalinnovation.one.experts.shoppingcart.repository.CartRepository;
+import digitalinnovation.one.experts.shoppingcart.services.CartService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,20 +15,11 @@ import java.util.Optional;
 public class CartController {
 
     @Autowired
-    private CartRepository cartRepository;
+    private CartService cartService;
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.POST)
+    @PostMapping(value = "/{id}")
     public Cart addItem(@PathVariable("id") Integer id, @RequestBody Item item) {
-        Optional<Cart> savedCart = cartRepository.findById(id);
-        Cart cart;
-        if (savedCart.equals(Optional.empty())) {
-            cart = new Cart(id);
-        }
-        else {
-            cart = savedCart.get();
-        }
-        cart.getItems().add(item);
-        return cartRepository.save(cart);
+        return this.cartService.save(id, item);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
