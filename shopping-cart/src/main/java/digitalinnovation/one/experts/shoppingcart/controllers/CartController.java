@@ -1,7 +1,7 @@
-package digitalinnovation.one.experts.shoppingcart.controller;
+package digitalinnovation.one.experts.shoppingcart.controllers;
 
-import digitalinnovation.one.experts.shoppingcart.model.Cart;
-import digitalinnovation.one.experts.shoppingcart.model.Item;
+import digitalinnovation.one.experts.shoppingcart.models.Cart;
+import digitalinnovation.one.experts.shoppingcart.models.Item;
 import digitalinnovation.one.experts.shoppingcart.services.CartService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ public class CartController {
     private CartService cartService;
 
     @PostMapping(value = "/{id}")
-    public Cart addItem(@PathVariable("id") Integer id, @RequestBody Item item) {
+    public Cart create(@PathVariable("id") Integer id, @RequestBody Item item) {
         return this.cartService.save(id, item);
     }
 

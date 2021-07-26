@@ -5,9 +5,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import digitalinnovation.one.experts.shoppingcart.model.Cart;
-import digitalinnovation.one.experts.shoppingcart.model.Item;
-import digitalinnovation.one.experts.shoppingcart.repository.CartRepository;
+import digitalinnovation.one.experts.shoppingcart.models.Cart;
+import digitalinnovation.one.experts.shoppingcart.models.Item;
+import digitalinnovation.one.experts.shoppingcart.repositories.CartRepository;
 
 @Service
 public class CartService {
