@@ -1,4 +1,4 @@
-package digitalinnovation.one.experts.shoppingcart.model;
+package digitalinnovation.one.experts.shoppingcart.models;
 
 import org.springframework.data.redis.core.RedisHash;
 

@@ -1,7 +1,8 @@
-package digitalinnovation.one.experts.shoppingcart.repository;
+package digitalinnovation.one.experts.shoppingcart.repositories;
 
-import digitalinnovation.one.experts.shoppingcart.model.Cart;
 import org.springframework.data.repository.CrudRepository;
+
+import digitalinnovation.one.experts.shoppingcart.models.Cart;
 
 public interface CartRepository extends CrudRepository<Cart, Integer> {
 
