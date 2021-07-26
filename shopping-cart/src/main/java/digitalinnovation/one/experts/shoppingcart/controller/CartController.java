@@ -2,7 +2,6 @@ package digitalinnovation.one.experts.shoppingcart.controller;
 
 import digitalinnovation.one.experts.shoppingcart.model.Cart;
 import digitalinnovation.one.experts.shoppingcart.model.Item;
-import digitalinnovation.one.experts.shoppingcart.repository.CartRepository;
 import digitalinnovation.one.experts.shoppingcart.services.CartService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,14 +21,14 @@ public class CartController {
         return this.cartService.save(id, item);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Optional<Cart> findById(@PathVariable("id") Integer id) {
-        return cartRepository.findById(id);
+    @GetMapping(value = "/{id}")
+    public Optional<Cart> listById(@PathVariable("id") Integer id) {
+        return this.cartService.listById(id);
     }
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
-    public void clear(@PathVariable("id") Integer id) {
-        cartRepository.deleteById(id);
+    @DeleteMapping(value = "/{id}")
+    public void delete(@PathVariable("id") Integer id) {
+        this.cartService.delete(id);
     }
 
 }

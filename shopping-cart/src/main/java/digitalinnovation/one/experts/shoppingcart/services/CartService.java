@@ -28,4 +28,12 @@ public class CartService {
 
     return this.cartRepository.save(cart);
   }
+
+  public Optional<Cart> listById(Integer id) {
+    return this.cartRepository.findById(id);
+  }
+
+  public void delete(Integer id) {
+    this.cartRepository.deleteById(id);
+  }
 }
